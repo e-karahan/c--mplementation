@@ -1,7 +1,7 @@
 #include<stdio.h>
-#include<unistd.h> /*for STDOUT_FILENO*/
+#include<unistd.h>
 #include<stdlib.h>
-#include<fcntl.h> /*for open*/
+#include<fcntl.h>
 
 int main(int argc,char *argv[])
 {
@@ -25,5 +25,5 @@ int main(int argc,char *argv[])
 
 	return 0;
 OUT:
-        return -1;
+        return -1;  
 }
