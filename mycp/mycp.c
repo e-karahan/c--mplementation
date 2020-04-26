@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 	/*Source ve Destination Dosyalarına Ulaşıldımı Kontrolu Yapılır Ulaşılamadıysa Hata Yazdırılır*/
 	if(argc != 3 || argv[1] == "--help")
 	{
-		printf("\nUsage: cpcmd source_file destination_file\n");
+		printf("\nKullanım: cpcmd source_file destination_file\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
   	/*Dosya Açılamadıysa Hata Yazdırılıyor*/
 	if(srcFD == -1)
 	{
-		printf("\nError opening file %s errno = %d\n",argv[1],errno);
+		printf("\nDosya Açılırken Hata  %s errno = %d\n",argv[1],errno);
 		exit(EXIT_FAILURE);
 	}
 
@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
     /*Dosya Açılamadıysa Hata Yazdırılıyor*/
 	if(destFD == -1)
 	{
-		printf("\nError opening file %s errno = %d\n",argv[2],errno);
+		printf("\nDosya Açılırken Hata %s errno = %d\n",argv[2],errno);
 		exit(EXIT_FAILURE);
 	}
 
@@ -39,17 +39,17 @@ int main(int argc, char* argv[])
 	while((nbread = read(srcFD,buff,BUFF_SIZE)) > 0)
 	{
 		if(write(destFD,buff,nbread) != nbread)
-			printf("\nError in writing data to %s\n",argv[2]);
+			printf("\nData Yazılırken Hata %s\n",argv[2]);
 	}
 /*Datanın okunmasında hata var*/
 	if(nbread == -1)
-		printf("\nError in reading data from %s\n",argv[1]);
+		printf("\nData Okunurken Hata %s\n",argv[1]);
 /*Source Dosyası Kapatılamadı*/
 	if(close(srcFD) == -1)
-		printf("\nError in closing file %s\n",argv[1]);
+		printf("\nDosya Kapatılamadı %s\n",argv[1]);
 /*Destination Dosyası Kapatılamadı*/
 	if(close(destFD) == -1)
-		printf("\nError in closing file %s\n",argv[2]);
+		printf("\nDosya Kapatılamadı %s\n",argv[2]);
 
 	exit(EXIT_SUCCESS);
 }
