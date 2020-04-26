@@ -2,37 +2,37 @@
 #include"conio.h"
 main()
 {
-      clrscr(); /*Ekran Temizlemek İçin Kullanıldı*/
+      clrscr(); /*Ekran Temizlemek icin Kullanildi*/
       FILE *fp;
       char file[20], ch;
       int c=0, w=0, l=0;
-      printf("Doyanın Adını Giriniz:");
+      printf("Dosyanin Adini Giriniz:");
       gets(file);
-      fp=fopen(file,"r"); /*Dosya Açılıyor*/
-      if(fp==NULL){ /*Dosya Açılamadıysa Hata Yazdırılıyor*/
-          printf("\n\nDosya Okunamadı\nDosya Adını Kontrol Edin");
+      fp=fopen(file,"r"); /*Dosya Aciliyor*/
+      if(fp==NULL){ /*Dosya Acilmadiysa Hata Yazdiriliyor*/
+          printf("\n\nDosya Okunamadi\nDosya Adini Kontrol Edin");
       }
       else{
             while(1){
                 ch=fgetc(fp);
-                c++; /*Karakterler Sayılıyor.*/
-                if(ch==EOF){ /*Dosyanın Sonuna Ulaşıldıysa Döngüden Çıkılıyor*/
+                c++; /*Karakterler Sayiliyor.*/
+                if(ch==EOF){ /*Dosyanin Sonuna Ulasildiysa Donguden Cikiliyor*/
                   break;
                 }
                 else if(ch==' '){
-                  w++; /*Kelimeler Sayılıyor.*/
+                  w++; /*Kelimeler Sayiliyor.*/
                 }
                 else if(ch=='\n')
                 {
-                  l++; /*Satır Sayısı Sayılıyor.*/
+                  l++; /*Satir Sayisi Sayiliyor*/
                   w++;
                 }
            }
-           printf("\n\nDosyadaki Karakter Sayısı %s = %d",file, c);
-           printf("\n\nDosyadaki Kelime Sayısı %s = %d",file, w);
-           printf("\n\nDosyadaki Satır Sayısı %s = %d",file, l);
+           printf("\n\nDosyadaki Karakter Sayisi %s = %d",file, c);
+           printf("\n\nDosyadaki Kelime Sayisi %s = %d",file, w);
+           printf("\n\nDosyadaki Sayisi Sayisi %s = %d",file, l);
       }
-      fclose(fp); /*Dosya Kapatılıyor*/
+      fclose(fp); /*Dosya Kapatiliyor*/
       getch();
       return(0);
 }
